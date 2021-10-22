@@ -1,0 +1,208 @@
+openapi: 3.0.0
+info:
+  title: Lisktu
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://listku-task-api.herokuapp.com/api/v1
+  variables: {}
+paths:
+  /auth/register:
+    post:
+      tags:
+      - Auth
+      summary: REGISTER USER
+      operationId: REGISTERUSER
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/REGISTERUSERREQUEST'
+            example:
+              username: kobayashi
+              email: kobayashi@gmail.com
+              password: secret
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/login:
+    post:
+      tags:
+      - Auth
+      summary: LOGIN USER
+      operationId: LOGINUSER
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LOGINUSERREQUEST'
+            example:
+              email: kobayashi@gmail.com
+              password: secret
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /tasks:
+    post:
+      tags:
+      - Tasks
+      summary: CREATE TASK
+      operationId: CREATETASK
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CREATETASKREQUEST'
+            example:
+              task: fix bugs!
+              description: Make sure to finish it before the deadline.
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    get:
+      tags:
+      - Tasks
+      summary: GET ALL TASK
+      operationId: GETALLTASK
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /tasks/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The task ID
+    get:
+      tags:
+      - Tasks
+      summary: GET TASK
+      operationId: GETTASK
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    patch:
+      tags:
+      - Tasks
+      summary: UPDATE TASK
+      operationId: UPDATETASK
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UPDATETASKREQUEST'
+            example:
+              task: fix bugs & create a documentation.
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    delete:
+      tags:
+      - Tasks
+      summary: DELETE TASK
+      operationId: DELETETASK
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    REGISTERUSERREQUEST:
+      title: REGISTERUSERREQUEST
+      required:
+      - username
+      - email
+      - password
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        username: kobayashi
+        email: kobayashi@gmail.com
+        password: secret
+    LOGINUSERREQUEST:
+      title: LOGINUSERREQUEST
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: kobayashi@gmail.com
+        password: secret
+    CREATETASKREQUEST:
+      title: CREATETASKREQUEST
+      required:
+      - task
+      - description
+      type: object
+      properties:
+        task:
+          type: string
+        description:
+          type: string
+      example:
+        task: fix bugs!
+        description: Make sure to finish it before the deadline.
+    UPDATETASKREQUEST:
+      title: UPDATETASKREQUEST
+      required:
+      - task
+      type: object
+      properties:
+        task:
+          type: string
+      example:
+        task: fix bugs & create a documentation.
+  securitySchemes:
+    httpBearer:
+      type: http
+      scheme: bearer
+security:
+- httpBearer: []
+tags:
+- name: Auth
+  description: ''
+- name: Tasks
+  description: ''

@@ -9,6 +9,11 @@ const cors = require('cors');
 const xss = require('xss-clean');
 const rateLimiter = require('express-rate-limit');
 
+// Swagger API
+const swaggerUI = require('swagger-ui-express');
+const YAML = require('yamljs');
+const swaggerDocumentation = YAML.load('./swagger.yaml');
+
 // MongoDB
 const connectDB = require('./utils/connect');
 
@@ -41,6 +46,7 @@ app.use(xss());
 app.get('/', (req, res) => {
     res.send('<h1>Task API</h1>');
 });
+app.use('/', swaggerUI.serve, swaggerUI.setup(swaggerDocumentation));
 
 // Routes
 app.use('/api/v1/auth', authRouter);

@@ -44,9 +44,9 @@ app.use(cors());
 app.use(xss());
 
 app.get('/', (req, res) => {
-    res.send('<h1>Task API</h1>');
+    res.send('<h1>Task API</h1><a href="/api-docs">Documentation</a>');
 });
-app.use('/', swaggerUI.serve, swaggerUI.setup(swaggerDocumentation));
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocumentation));
 
 // Routes
 app.use('/api/v1/auth', authRouter);

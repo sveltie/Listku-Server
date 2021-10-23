@@ -19,3 +19,7 @@ MONGO_URI = ENTER YOUR MONGO URI HERE
 JWT_SECRET = ENTER YOUR JWT TOKEN HERE
 JWT_LIFETIME = 30d
 ```
+## Swagger Documentation Preview
+This documentation is created by using APIMATIC which import the Postman API config, the export format from the APIMATIC is OpenAPI v3.0 (YAML).
+
+<img src="https://cdn.discordapp.com/attachments/743403841487241217/901264192227651584/unknown.png" width="400px"> 

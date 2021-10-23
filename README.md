@@ -1,5 +1,5 @@
 # Server
-The main API for Listku app built with Express.
+The main API for Listku app built with Express. Listku is an application that is made with a purpose to track user to-do/task list, schedule, etc like any basic to-do application. Users will be able to manage, edit, delete, and group their tasks based on the task priority or simply the CRUD functionality.
 
 ## Note
 - Built a REST API which perform a basic To-Do **CRUD** functionality

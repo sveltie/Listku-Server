@@ -11,3 +11,11 @@ The main API for Listku app built with Express.
 ```bash
 npm install && npm start
 ```
+
+## Variable Setup
+Create a dotenv file within the project folder and copy all the variables from the `.env-sample`, after this you need to fill it with your own token, url, etc.
+```env
+MONGO_URI = ENTER YOUR MONGO URI HERE
+JWT_SECRET = ENTER YOUR JWT TOKEN HERE
+JWT_LIFETIME = 30d
+```
